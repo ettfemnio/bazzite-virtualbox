@@ -15,6 +15,5 @@ esac
 
 UPSTREAM="ghcr.io/ublue-os/bazzite$SUFFIX:latest"
 echo "upstream=$UPSTREAM" >> $GITHUB_OUTPUT
-docker pull "$UPSTREAM"
-UPSTREAM_VER="$(docker inspect "$UPSTREAM" | jq -r '.[0].Config.Labels["org.opencontainers.image.version"]')"
+UPSTREAM_VER="$(docker manifest inspect -v "$UPSTREAM" | jq -r '.OCIManifest.annotations["org.opencontainers.image.version"]')"
 echo "upstream_ver=$UPSTREAM_VER" >> $GITHUB_OUTPUT
