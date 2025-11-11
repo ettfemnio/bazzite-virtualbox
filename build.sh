@@ -70,3 +70,12 @@ curl -L -o $EXTPACK_PATH "$EXTPACK_URL"
   --name "Oracle VirtualBox Extension Pack" \
   --tarball $EXTPACK_PATH \
   --sha-256 $HASH
+
+mkdir -p /usr/etc/modules-load.d
+cat > /usr/etc/modules-load.d/bazzite-virtualbox << EOF
+# load virtualbox kernel drivers
+vboxdrv
+vboxnetflt
+vboxnetflt
+EOF
+
