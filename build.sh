@@ -71,8 +71,8 @@ curl -L -o $EXTPACK_PATH "$EXTPACK_URL"
   --tarball $EXTPACK_PATH \
   --sha-256 $HASH
 
-mkdir -p /usr/etc/modules-load.d
-cat > /usr/etc/modules-load.d/bazzite-virtualbox << EOF
+mkdir -p /usr/lib/modules-load.d
+cat > /usr/lib/modules-load.d/bazzite-virtualbox.conf << EOF
 # load virtualbox kernel drivers
 vboxdrv
 vboxnetflt
